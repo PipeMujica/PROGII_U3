@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Búsqueda por ingrediente</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+<ion-searchbar 
+    [debounce]="2000" 
+    (ionInput)="handleInput($event)" /> 
+  <ion-list>
+    <ion-item *ngFor="let bebida of resultadoBusqueda">
+      <ion-img [src]="bebida.strDrinkThumb" />
+      <ion-label>{{ bebida.strDrink }}</ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="agregarAFavoritos(bebida)">
+          <ion-icon name="heart-outline"/>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item *ngFor="let bebidaFavorita of favoritos">
+      <ion-img [src]="bebidaFavorita.strDrinkThumb" />
+      <ion-label>{{ bebidaFavorita.strDrink }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

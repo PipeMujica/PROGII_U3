@@ -1,0 +1,14 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Drink Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item *ngFor="let c of categorias"> 
+      <ion-img [src]="c.imagen" />
+      <ion-label>{{c.nombre}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
